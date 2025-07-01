@@ -85,23 +85,6 @@ Extracted product information from crawling is saved to `reports/product_details
 
 Lombok's `@Slf4j` annotation is used for logging. Logs are integrated with ExtentReports listeners.
 
-## Features Implemented
-
-*   **Basic Crawling:**
-    *   Automated opening of the homepage.
-    *   Search for a product (e.g., "laptop").
-    *   Extraction of Product Name, Price, Ratings, and URL from search results.
-*   **Functional Testing:**
-    *   Validation of "Add to Cart" button presence.
-    *   Validation of Product details section.
-    *   Validation of Image gallery functionality.
-    *   Testing search functionality with valid and invalid inputs.
-*   **Reporting:**
-    *   Extracted product information stored in a CSV file.
-    *   Test results logged and reported using ExtentReports.
-*   **Bonus Tasks:**
-    *   **Multi-page Crawling:** The `SearchResultsPage` class is enhanced to crawl multiple pages of search results.
-
 ## Customization
 
 *   **Browser:** Default browser is Chrome. You can change it in `config.properties` or via Maven command line.

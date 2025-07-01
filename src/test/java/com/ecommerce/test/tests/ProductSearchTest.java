@@ -4,10 +4,13 @@ import com.ecommerce.test.pages.HomePage;
 import com.ecommerce.test.pages.SearchResultsPage;
 import com.ecommerce.test.utilities.CsvUtility;
 import com.ecommerce.test.utilities.ExcelUtility;
+import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
+
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 public class ProductSearchTest extends BaseTest {
 
     @Test
@@ -27,17 +30,8 @@ public class ProductSearchTest extends BaseTest {
         SearchResultsPage searchResultsPage = homePage.searchForProduct(productToSearch);
         List<Map<String, String>> productDetails = searchResultsPage.getProductDetails();
 
-        System.out.println("\n--- Extracted Product Details ---");
-        for (Map<String, String> product : productDetails) {
-            System.out.println("Product Name: " + product.get("Product Name"));
-            System.out.println("Price: " + product.get("Price"));
-            System.out.println("Ratings: " + product.get("Ratings"));
-            System.out.println("URL: " + product.get("URL"));
-            System.out.println("-----------------------------------");
-        }
-
         CsvUtility.writeToCsv("reports/product_details.csv", productDetails);
-        System.out.println("Product details saved to reports/product_details.csv");
+        log.info("Product details saved to reports/product_details.csv");
     }
 }
 

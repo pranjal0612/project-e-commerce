@@ -31,7 +31,7 @@ public class SearchResultsPage extends BasePage {
 
             for (WebElement product : productList) {
                 WebElement productNameElement = safeFindElement(product, By.cssSelector("h2 span"));
-                if (productNameElement == null) continue; // Skip invalid/sponsored entries
+                if (productNameElement == null) continue;
 
                 Map<String, String> productDetails = new HashMap<>();
                 productDetails.put("Product Name", productNameElement.getText());
@@ -56,7 +56,6 @@ public class SearchResultsPage extends BasePage {
                 if (nextPageButton.isDisplayed() && nextPageButton.isEnabled()) {
                     nextPageButton.click();
 
-                    // Wait for the new page's product list to load
                     new WebDriverWait(driver, Duration.ofSeconds(10))
                             .until(ExpectedConditions.presenceOfElementLocated(productSelector));
                 } else {

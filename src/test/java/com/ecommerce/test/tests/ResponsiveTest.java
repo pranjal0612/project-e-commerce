@@ -2,8 +2,10 @@ package com.ecommerce.test.tests;
 
 import com.ecommerce.test.pages.HomePage;
 import com.ecommerce.test.utilities.ResponsiveTestUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 
+@Slf4j
 public class ResponsiveTest extends BaseTest {
 
     @Test
@@ -11,20 +13,14 @@ public class ResponsiveTest extends BaseTest {
         HomePage homePage = new HomePage(driver);
         homePage.navigateToHomePage();
 
-        // Test desktop size
         ResponsiveTestUtil.setScreenSize(driver, 1366, 768);
-        System.out.println("Testing with Desktop resolution (1366x768)");
-        // Add assertions here to validate layout for desktop
+        log.info("Testing with Desktop resolution (1366x768)");
 
-        // Test tablet size
         ResponsiveTestUtil.setScreenSize(driver, 768, 1024);
-        System.out.println("Testing with Tablet resolution (768x1024)");
-        // Add assertions here to validate layout for tablet
+        log.info("Testing with Tablet resolution (768x1024)");
 
-        // Test mobile size
         ResponsiveTestUtil.setScreenSize(driver, 375, 667);
-        System.out.println("Testing with Mobile resolution (375x667)");
-        // Add assertions here to validate layout for mobile
+        log.info("Testing with Mobile resolution (375x667)");
 
         ResponsiveTestUtil.resetScreenSize(driver);
     }
